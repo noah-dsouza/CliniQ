@@ -1,73 +1,173 @@
- ClinIQ
+# 🧠 ClinIQ
 
-AI-powered clinical trial matching and digital twin health platform.
+**AI-powered clinical trial matching + specialist sourcing**
 
-## What it does
+> Turn patient data into actionable insights, personalized care, and real clinical trial opportunities.
 
-ClinIQ builds a **digital twin** from a patient's health profile — labs, vitals, diagnosis, medications, lifestyle — and uses it to:
+🔗 **Devpost:** https://tinyurl.com/mv7mzvnt
 
-- Match patients to real recruiting clinical trials from ClinicalTrials.gov with AI-powered eligibility analysis
-- Surface relevant specialist doctors and care teams by location (US via NPI Registry, international via OpenStreetMap)
-- Provide a context-aware AI health assistant that knows the patient's actual data
-- Generate health scores across cardiovascular, metabolic, and functional domains
+---
 
-## Stack
+## 🚀 Overview
 
-| Layer | Tech |
-|---|---|
-| Frontend | React, TypeScript, Vite, Framer Motion, Tailwind CSS |
-| Backend | Node.js, Express, TypeScript |
-| AI | Groq & Claude|
-| Trial Data | ClinicalTrials.gov API and Webscraping |
-| Doctor Search | NPI Registry (US) + OpenStreetMap Overpass API (international) & webscraping |
+ClinIQ creates a **digital twin** of a patient using real health data — then uses AI to match them with clinical trials, doctors, and personalized insights.
 
-## Getting started
+Instead of generic health tools, ClinIQ understands *your actual condition*.
+
+---
+
+## 🔍 What ClinIQ Does
+
+### 🧬 Digital Twin Modeling
+
+Builds a structured patient profile from:
+
+* Labs, vitals, diagnoses
+* Medications & comorbidities
+* Lifestyle + uploaded medical documents
+
+Automatically computes:
+
+* ECOG Performance Status
+* Charlson Comorbidity Index
+* BMI + system-level health scores
+
+---
+
+### 🧪 Clinical Trial Matching
+
+* Live data from **ClinicalTrials.gov**
+* AI evaluates eligibility using real patient data
+* Clear breakdown of:
+
+  * Inclusion criteria ✅
+  * Exclusion criteria ❌
+* Plain-English explanations (no medical jargon overload)
+
+---
+
+### 🧑‍⚕️ Find Specialists
+
+* **US:** NPI Registry (no API key required)
+* **Global:** OpenStreetMap Overpass API
+* Search by condition + location
+
+---
+
+### 💬 AI Health Assistant
+
+* Powered by **Groq + Claude**
+* Fully context-aware (knows patient data)
+* Answers:
+
+  * Lab results
+  * Risk scores
+  * Medications
+  * Trial eligibility
+
+---
+
+### 🎮 Demo Mode
+
+Skip onboarding and load a prebuilt patient:
+
+* **58M**
+* Type 2 Diabetes
+* Hypertension
+* Chronic Kidney Disease
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer         | Tech                                                 |
+| ------------- | ---------------------------------------------------- |
+| Frontend      | React, TypeScript, Vite, Framer Motion, Tailwind CSS |
+| Backend       | Node.js, Express, TypeScript                         |
+| AI            | Groq, Claude                                         |
+| Trial Data    | ClinicalTrials.gov API + Web Scraping                |
+| Doctor Search | NPI Registry (US) + OpenStreetMap Overpass API       |
+
+---
+
+## ⚙️ Getting Started
 
 ### 1. Install dependencies
+
 ```bash
 npm run install:all
-2. Set up environment variables
+```
 
+### 2. Set up environment variables
+
+```bash
 cp .env.example .env
-Fill in your .env:
+```
 
+Add your API key:
 
+```env
 GROQ_API_KEY=your_groq_api_key_here
-Get a free Groq API key at console.groq.com
+```
 
-3. Run
-In two separate terminals from the repo root:
+Get a free key at: https://console.groq.com
 
+---
 
+### 3. Run the app
+
+```bash
 # Terminal 1 — Backend (port 3001)
 npm run dev:backend
 
 # Terminal 2 — Frontend (port 5173)
 npm run dev:frontend
-Open http://localhost:5173
+```
 
-Features
-Digital Twin
-Complete health profile built from a 6-step intake form or by uploading a health document (lab reports, discharge summaries). Calculates ECOG performance status, Charlson Comorbidity Index, BMI, and system-level health assessments automatically.
+Open: http://localhost:5173
 
-Clinical Trial Matching
-Live search against ClinicalTrials.gov. Each trial gets an AI eligibility score based on the patient's actual age, diagnosis, labs, ECOG status, and medications. The eligibility drawer breaks down every inclusion/exclusion criterion with plain-English reasoning.
+---
 
-Find Support
-Specialist doctor search by condition and location. US searches hit the NPI Registry (no API key needed). International searches use OpenStreetMap's Overpass API — no key needed, works for any city worldwide.
+## ✨ Features
 
-AI Chat
-Groq-powered health assistant with full patient context auto-loaded. Answers questions about the patient's specific labs, scores, medications, and eligibility — not generic responses.
+### Digital Twin
 
-Demo Mode
-Hit Demo Mode on the login page to skip intake and load a pre-built patient (58M, Type 2 Diabetes + hypertension + CKD) directly into the dashboard.
+* 6-step intake form OR document upload
+* Structured health profile generation
+* Automatic scoring + system-level analysis
 
-Project structure
+---
 
+### Clinical Trial Matching
+
+* Real-time trial search
+* AI eligibility scoring
+* Detailed reasoning for each criterion
+
+---
+
+### Find Support
+
+* Doctor search by specialty + location
+* Works globally (no API key required)
+
+---
+
+### AI Chat
+
+* Context-aware assistant
+* Uses real patient data
+* No generic answers
+
+---
+
+## 📁 Project Structure
+
+```
 cliniq/
-├── frontend/          # React/Vite app
+├── frontend/          # React + Vite app
 │   └── src/
-│       ├── app/       # Components, pages
+│       ├── app/       # Components & pages
 │       ├── context/   # DigitalTwinContext
 │       ├── hooks/     # useIntakeForm
 │       └── types/     # Shared types
@@ -77,3 +177,26 @@ cliniq/
 │       ├── services/  # groqService, doctorSearchService, digitalTwinBuilder
 │       └── types/     # Shared types
 └── .env.example
+```
+
+---
+
+## 💡 Why ClinIQ?
+
+Most health tools give generic advice.
+
+ClinIQ:
+
+* Uses **your real data**
+* Matches you to **actual clinical trials**
+* Explains **why you qualify (or don’t)**
+* Connects you with **real doctors**
+
+Basically: less guessing, more precision.
+
+---
+
+## ⚠️ Disclaimer
+
+ClinIQ is for **educational and research purposes only**.
+Not intended for medical diagnosis or treatment decisions.
