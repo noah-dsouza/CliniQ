@@ -7,7 +7,7 @@ import { getRecommendationColor, getRecommendationLabel, formatPhase, truncate }
 
 // ── 3D Tilt wrapper ───────────────────────────────────────────────────────────
 
-function TiltCard({ children, borderColor }: { children: React.ReactNode; borderColor: string }) {
+function TiltCard({ children, borderColor: _borderColor }: { children: React.ReactNode; borderColor: string }) {
   const ref = useRef<HTMLDivElement>(null);
   const [hovered, setHovered] = useState(false);
 

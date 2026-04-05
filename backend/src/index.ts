@@ -71,9 +71,10 @@ app.use((err: Error, _req: express.Request, res: express.Response, _next: expres
   res.status(500).json({ error: "Internal server error" });
 });
 
-// ── Start Server ─────────────────────────────────────────────────────────────
-app.listen(PORT, () => {
-  console.log(`
+// ── Start Server (skipped in Vercel serverless) ──────────────────────────────
+if (!process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`
 ╔═══════════════════════════════════════╗
 ║       ClinIQ Backend API Server       ║
 ╠═══════════════════════════════════════╣
@@ -81,7 +82,8 @@ app.listen(PORT, () => {
 ║  Mode:    ${process.env.NODE_ENV || "development"}                  ║
 ║  Health:  http://localhost:${PORT}/health ║
 ╚═══════════════════════════════════════╝
-  `);
-});
+    `);
+  });
+}
 
 export default app;

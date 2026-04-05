@@ -54,7 +54,6 @@ export function HealthScoreGauge({
     return `M ${x1.toFixed(2)} ${y1.toFixed(2)} A ${r} ${r} 0 ${large} 1 ${x2.toFixed(2)} ${y2.toFixed(2)}`;
   }
 
-  const trackD = arcPathD(1);
   const scoreD = arcPathD(Math.max(0.01, score / 100));
 
   // Endpoint dot position
