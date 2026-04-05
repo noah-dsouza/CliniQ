@@ -17,7 +17,7 @@ function AppContent() {
 
   const handleDemo = async () => {
     try {
-      const res = await fetch("http://localhost:3001/api/demo/patient");
+      const res = await fetch("/api/demo/patient");
       const data = await res.json();
       if (data.twin) {
         setTwin(data.twin);
